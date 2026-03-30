@@ -8,9 +8,9 @@ router.get("/usuarios", getUsuario);
 
 router.post("/usuarios", postUsuario);
 
-router.get("usuarios/:id", buscarUsuarioPorId);
+router.get("/usuarios/:id", buscarUsuarioPorId);
 
-router.delete("usuarios/:id", deleteUsuario);
+router.delete("/usuarios/:id", deleteUsuario);
 
 
 export default router;

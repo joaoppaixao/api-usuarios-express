@@ -2,12 +2,12 @@ let usuarios = []
 let id = 0 
 
 
-export const getUsuario = (req, res => {
+export const getUsuario = (req, res) => {
     res.json(usuarios)
-})
+}
 
 
-export const postUsuario = (req, res => {
+export const postUsuario = (req, res) => {
     const {nome, email} = req.body;
 
     const novoUsuario = {
@@ -19,10 +19,10 @@ export const postUsuario = (req, res => {
     usuarios.push(novoUsuario);
 
     return res.status(201).json({ mensagem: "Usuário criado com sucesso!", novoUsuario })
-})
+}
 
 
-export const buscarUsuarioPorId = (req, res => {
+export const buscarUsuarioPorId = (req, res) => {
     const { id } = req.params;
 
     const usuario = usuarios.find(u => u.id == id)
@@ -33,10 +33,10 @@ export const buscarUsuarioPorId = (req, res => {
 
     res.json(usuario)
 
-})
+}
 
 
-export const deleteUsuario = (req, res => {
+export const deleteUsuario = (req, res) => {
     const { id } = req.params;
 
     const index = usuarios.findIndex(u => u.id == id)
@@ -48,4 +48,4 @@ export const deleteUsuario = (req, res => {
     usuarios.splice(index, 1);
 
     res.status(204).send()
-})
+}
