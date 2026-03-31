@@ -1,14 +1,14 @@
 import { Router } from "express";
 import { getProdutos, postProdutos, buscarProdutoPorId, deletarProduto } from "../controllers/produtosController.js";
-import { verificarAdmin } from "../middlewares/verificarAdminMiddleware.js";
 import { validarProduto } from "../middlewares/validarProdutoMiddleware.js";
+import { logger } from "../middlewares/loggerMiddleware.js";
 
 
 const router = Router();
 
 router.get("/produtos", getProdutos);
 
-router.post("/produtos", validarProduto, postProdutos);
+router.post("/produtos", logger, validarProduto, postProdutos);
 
 router.get("/produtos/:id", buscarProdutoPorId);
 
