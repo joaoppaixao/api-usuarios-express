@@ -3,7 +3,7 @@ let id = 0
 
 
 export const getUsuario = (req, res) => {
-    res.json(usuarios)
+    return res.json(usuarios)
 }
 
 
@@ -11,7 +11,7 @@ export const postUsuario = (req, res) => {
     const {nome, email} = req.body;
 
     if (!nome || !email) {
-        res.status(400).json({
+        return res.status(400).json({
             erro: 'Dados inválidos. Nome e e-mail são campos obrigatórios!'
         });
     };
@@ -34,10 +34,10 @@ export const buscarUsuarioPorId = (req, res) => {
     const usuario = usuarios.find(u => u.id == id)
 
     if (!usuario) {
-        return res.status(404).json({ erro: "Usuário não encontrado!" })
+        return res.status(404).json({ erro: "[ERRO] Usuário não encontrado!" })
     }
 
-    res.json(usuario)
+    return res.json(usuario)
 
 }
 
@@ -53,5 +53,5 @@ export const deleteUsuario = (req, res) => {
 
     usuarios.splice(index, 1);
 
-    res.status(204).send()
+    return res.status(204).send()
 }
