@@ -10,6 +10,12 @@ export const getUsuario = (req, res) => {
 export const postUsuario = (req, res) => {
     const {nome, email} = req.body;
 
+    if (!nome || !email) {
+        res.status(400).json({
+            erro: 'Dados inválidos. Nome e e-mail são campos obrigatórios!'
+        });
+    };
+
     const novoUsuario = {
         id: id++,
         nome,
