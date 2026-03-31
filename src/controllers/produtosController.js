@@ -10,12 +10,6 @@ export const getProdutos = (req, res) => {
 export const postProdutos = (req, res) => {
     const { nome, preco, categoria } = req.body;
 
-    if (!nome || !preco || !categoria) {
-        return res.status(400).json({
-            erro: 'Dados inválidos. Nome, preço e categoria são campos obrigatórios!'
-        });
-    };
-
     const novoProduto = {
         id: id++,
         nome,
